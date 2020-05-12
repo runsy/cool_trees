@@ -148,6 +148,7 @@ minetest.register_node("bamboo:trunk", {
 	wield_image = "bamboo.png",
 	paramtype = "light",
 	sunlight_propagates = true,
+        climbable = true,
 	walkable = true,
 	selection_box = {
 		type = "fixed",

@@ -102,7 +102,7 @@ minetest.register_decoration({
 	},
 	biomes = {"grassland"},
 	y_min = 10,
-	y_max = 80,
+	y_max = 5000,
 	schematic = birch.birchtree,
 	flags = "place_center_x, place_center_z",
 })

@@ -46,6 +46,27 @@ if mg_name ~= "v6" and mg_name ~= "singlenode" then
 		rotation = "random",
 	})
 end
+if mg_name == "v6" then
+	minetest.register_decoration({
+		deco_type = "schematic",
+		place_on = {"default:sand"},
+		sidelen = 16,
+		noise_params = {
+			offset = 0.0005,
+			scale = 0.0005,
+			spread = {x = 250, y = 250, z = 250},
+			seed = 2,
+			octaves = 3,
+			persist = 0.66
+		},
+		height = 2,
+		y_min = 0,
+		y_max = 0,
+		schematic = modpath.."/schematics/baldcypress.mts",
+		flags = "place_center_x, place_center_z, force_placement",
+		rotation = "random",
+	})
+end
 
 --
 -- Nodes

@@ -128,7 +128,7 @@ minetest.register_decoration({
 	},
 	biomes = {"grassland"},
 	y_min = 2,
-	y_max = 20,
+	y_max = 5000,
 	schematic = bamboo.bambootree,
 	flags = "place_center_x, place_center_z",
 })

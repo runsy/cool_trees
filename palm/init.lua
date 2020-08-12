@@ -157,7 +157,7 @@ minetest.register_decoration({
 		},
 	biomes = {"sandstone_desert_ocean", "desert_ocean"},
 	y_min = 1,
-	y_max = 2,
+	y_max = 5000,
 	schematic = palm.palmtree,
 	flags = "place_center_x, place_center_z",
 	rotation = "random",

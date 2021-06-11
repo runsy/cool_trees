@@ -174,6 +174,25 @@ default.register_leafdecay({
 	radius = 3,
 })
 
+-- Fence
+if minetest.settings:get_bool("cool_fences", true) then
+	local fence = {
+		description = S("Willow Wood Fence"),
+		texture =  "willow_wood.png",
+		material = "willow:wood",
+		groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
+		sounds = default.node_sound_wood_defaults(),
+	}
+	default.register_fence("willow:fence", table.copy(fence)) 
+	fence.description = S("Willow Fence Rail")
+	default.register_fence_rail("willow:fence_rail", table.copy(fence))
+	
+	if minetest.get_modpath("doors") ~= nil then
+		fence.description = S("Willow Fence Gate")
+		doors.register_fencegate("willow:gate", table.copy(fence))
+	end
+end
+
 --Stairs
 
 if minetest.get_modpath("stairs") ~= nil then

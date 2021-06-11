@@ -195,6 +195,25 @@ default.register_leafdecay({
 	radius = 3,
 })
 
+-- Fence
+if minetest.settings:get_bool("cool_fences", true) then
+	local fence = {
+		description = S("Larch Tree Wood Fence"),
+		texture =  "larch_wood.png",
+		material = "larch:wood",
+		groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
+		sounds = default.node_sound_wood_defaults(),
+	}
+	default.register_fence("larch:fence", table.copy(fence)) 
+	fence.description = S("Larch Tree Fence Rail")
+	default.register_fence_rail("larch:fence_rail", table.copy(fence))
+	
+	if minetest.get_modpath("doors") ~= nil then
+		fence.description = S("Larch Tree Fence Gate")
+		doors.register_fencegate("larch:gate", table.copy(fence))
+	end
+end
+
 --Stairs
 
 if minetest.get_modpath("stairs") ~= nil then

@@ -215,6 +215,25 @@ default.register_leafdecay({
 	radius = 3,
 })
 
+-- Fence
+if minetest.settings:get_bool("cool_fences", true) then
+	local fence = {
+		description = S("Bald Cypress Wood Fence"),
+		texture =  "baldcypress_wood.png",
+		material = "baldcypress:wood",
+		groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
+		sounds = default.node_sound_wood_defaults(),
+	}
+	default.register_fence("baldcypress:fence", table.copy(fence)) 
+	fence.description = S("Bald Cypress Fence Rail")
+	default.register_fence_rail("baldcypress:fence_rail", table.copy(fence))
+	
+	if minetest.get_modpath("doors") ~= nil then
+		fence.description = S("Bald Cypress Fence Gate")
+		doors.register_fencegate("baldcypress:gate", table.copy(fence))
+	end
+end
+
 --Stairs
 
 if minetest.get_modpath("stairs") ~= nil then

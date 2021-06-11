@@ -248,6 +248,25 @@ if minetest.get_modpath("bonemeal") ~= nil then
 	})
 end
 
+-- Fence
+if minetest.settings:get_bool("cool_fences", true) then
+	local fence = {
+		description = S("Bamboo Wood Fence"),
+		texture =  "bamboo_floor.png",
+		material = "bamboo:wood",
+		groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
+		sounds = default.node_sound_wood_defaults(),
+	}
+	default.register_fence("bamboo:fence", table.copy(fence)) 
+	fence.description = S("Bamboo Fence Rail")
+	default.register_fence_rail("bamboo:fence_rail", table.copy(fence))
+	
+	if minetest.get_modpath("doors") ~= nil then
+		fence.description = S("Bamboo Fence Gate")
+		doors.register_fencegate("bamboo:gate", table.copy(fence))
+	end
+end
+
 --Stairs
 
 if minetest.get_modpath("stairs") ~= nil then

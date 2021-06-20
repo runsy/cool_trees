@@ -248,6 +248,12 @@ default.register_leafdecay({
 	radius = 3,
 })
 
+default.register_leafdecay({
+	trunks = {"cherrytree:trunk"},
+	leaves = {"cherrytree:blossom_leaves"},
+	radius = 3,
+})
+
 -- Fence
 if minetest.settings:get_bool("cool_fences", true) then
 	local fence = {
